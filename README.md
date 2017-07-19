@@ -1,14 +1,14 @@
 # Crud-app
 
 
-Some description or other info about what the app does.
+This app helps the manager keep track of their inventory of prducts, which includes creating, reading, updating, or deleting inventory. 
 
 ## Installation
 
 Download the source code:
 
 ```shell
-git clone remote_clone_address_of_your_repo_here
+git clone https://github.com/swanm89/Crud-app
 cd some/path/to/repo/
 ```
 
