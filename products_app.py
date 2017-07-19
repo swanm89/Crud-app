@@ -1,13 +1,15 @@
 import csv
 
+products = []
+
 csv_file_path = "data/products.csv"
 
 with open(csv_file_path, "r") as csv_file:
     reader = csv.DictReader(csv_file) # assuming your CSV has headers, otherwise... csv.reader(csv_file)
     for row in reader:
-        print(row["id"], row["name"])
+        products.append(row)
 
-
+print(len(products))
 #
 # menu = """
 #     Hi.
