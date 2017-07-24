@@ -12,21 +12,15 @@ def auto_incremented_id():
     product_ids = map(get_product_id, products)
     return max(product_ids) + 1
 
-# READ PRODUCTS FROM FILE
-
 with open(products_csv, "r") as csv_file:
     reader = csv.DictReader(csv_file)
     for ordered_dict in reader:
         products.append(dict(ordered_dict))
 
-#
-# HANDLE USER INPUT
-#
-
 def list_products():
     print("LISTING PRODUCTS HERE")
     for product in products:
-        print(" + Product #" + str(product["id"]) + ": " + product["name"])
+        print(" + Product " + str(product["id"]) + ": " + product["name"])
 
 def show_product():
     product_id = input("OK. WHAT IS THE PRODUCT'S ID? ")
@@ -65,9 +59,9 @@ def destroy_product():
         print("COULDN'T FIND A PRODUCT WITH IDENTIFIER", product_id)
 
 menu = """
------------------------------------
+---------------------------------------
 PRODUCTS APPLICATION
------------------------------------
+---------------------------------------
 
 Welcome to the Grocery Store Database!
 
@@ -96,7 +90,7 @@ elif crud_operation.title() == "Update":
 elif crud_operation.title() == "Destroy":
     destroy_product()
 else:
-    print("SORRY. PLEASE TRY AGAIN.")
+    print("Operation does not exist.")
 
 
 with open(products_csv, "w") as csv_file:
