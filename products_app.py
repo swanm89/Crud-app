@@ -90,7 +90,7 @@ elif crud_operation.title() == "Update":
 elif crud_operation.title() == "Destroy":
     destroy_product()
 else:
-    print("Operation does not exist.")
+    print("OPERATION DOES NOT EXIST.")
 
 
 with open(products_csv, "w") as csv_file:
