@@ -75,7 +75,7 @@ There are {1} products in the database.
     'Update'  | Edit an existing product.
     'Destroy' | Delete an existing product.
 
-Please select an operation: """.format("@s2t2", len(products))
+Please select an operation: """.format("@mswan", len(products))
 
 crud_operation = input(menu)
 
