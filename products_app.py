@@ -8,6 +8,10 @@ user_input_headers = [header for header in headers if header != "id"]
 
 def get_product_id(product): return int(product["id"])
 
+def Provide_ID():
+    product_id = input("Please provide the product ID:")
+    return product_id
+
 def auto_incremented_id():
     product_ids = map(get_product_id, products)
     return max(product_ids) + 1
@@ -23,7 +27,7 @@ def list_products():
         print(" + Product " + str(product["id"]) + ": " + product["name"])
 
 def show_product():
-    product_id = input("Please provide the product ID!")
+    product_id = Provide_ID()
     product = [p for p in products if p["id"] == product_id][0]
     if product:
         print("Reading product here", product)
@@ -39,7 +43,7 @@ def create_product():
     print("Creating product here", product)
 
 def update_product():
-    product_id = input("Please provide the product ID ")
+    product_id = Provide_ID()
     product = [p for p in products if p["id"] == product_id][0]
     if product:
         print("Please provide the products information")
@@ -50,7 +54,7 @@ def update_product():
         print("Product could not be found with ID", product_id)
 #Source: Professor Rossetti
 def destroy_product():
-    product_id = input("What is the product's ID ")
+    product_id = Provide_ID()
     product = [p for p in products if p["id"] == product_id][0]
     if product:
         print("Destroying product", product)
@@ -77,20 +81,20 @@ There are {1} products in the database.
 
 Please select an operation: """.format("@mswan", len(products))
 
-crud_operation = input(menu)
+chosen_operation = input(menu)
 
-if crud_operation.title() == "List":
+if chosen_operation.title() == "List":
     list_products()
-elif crud_operation.title() == "Show":
+elif chosen_operation.title() == "Show":
     show_product()
-elif crud_operation.title() == "Create":
+elif chosen_operation.title() == "Create":
     create_product()
-elif crud_operation.title() == "Update":
+elif chosen_operation.title() == "Update":
     update_product()
-elif crud_operation.title() == "Destroy":
+elif chosen_operation.title() == "Destroy":
     destroy_product()
 else:
-    print("OPERATION DOES NOT EXIST.")
+    print("Operation does not exist.")
 
 
 with open(products_csv, "w") as csv_file:
