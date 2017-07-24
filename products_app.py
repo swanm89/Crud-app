@@ -18,45 +18,45 @@ with open(products_csv, "r") as csv_file:
         products.append(dict(ordered_dict))
 
 def list_products():
-    print("LISTING PRODUCTS HERE")
+    print("Here are the products")
     for product in products:
         print(" + Product " + str(product["id"]) + ": " + product["name"])
 
 def show_product():
-    product_id = input("OK. WHAT IS THE PRODUCT'S ID? ")
+    product_id = input("Please provide the product ID!")
     product = [p for p in products if p["id"] == product_id][0]
     if product:
-        print("READING PRODUCT HERE", product)
+        print("Reading product here", product)
     else:
-        print("COULDN'T FIND A PRODUCT WITH IDENTIFIER", product)
+        print("No product could be found with ID", product)
 
 def create_product():
-    print("OK. PLEASE PROVIDE THE PRODUCT'S INFORMATION...")
+    print("Please provide the product information.")
     product = {"id": auto_incremented_id() }
     for header in user_input_headers:
         product[header] = input("The '{0}' is: ".format(header))
     products.append(product)
-    print("CREATING PRODUCT HERE", product)
+    print("Creating product here", product)
 
 def update_product():
-    product_id = input("OK. WHAT IS THE PRODUCT'S ID? ")
+    product_id = input("Please provide the product ID ")
     product = [p for p in products if p["id"] == product_id][0]
     if product:
-        print("OK. PLEASE PROVIDE THE PRODUCT'S INFORMATION...")
+        print("Please provide the products information")
         for header in user_input_headers:
             product[header] = input("Change '{0}' from '{1}' to: ".format(header, product[header]))
-        print("UPDATING PRODUCT HERE", product)
+        print("Updating product here", product)
     else:
-        print("COULDN'T FIND A PRODUCT WITH IDENTIFIER", product_id)
-
+        print("Product could not be found with ID", product_id)
+#Source: Professor Rossetti
 def destroy_product():
-    product_id = input("OK. WHAT IS THE PRODUCT'S ID? ")
+    product_id = input("What is the product's ID ")
     product = [p for p in products if p["id"] == product_id][0]
     if product:
-        print("DESTROYING PRODUCT HERE", product)
+        print("Destroying product", product)
         del products[products.index(product)]
     else:
-        print("COULDN'T FIND A PRODUCT WITH IDENTIFIER", product_id)
+        print("Product could not be found with ID", product_id)
 
 menu = """
 ---------------------------------------
