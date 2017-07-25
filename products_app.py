@@ -32,7 +32,7 @@ def show_product():
     if product:
         print("Reading product here", product)
     else:
-        print("No product could be found with ID", product)
+        print("No product could be found with ID")
 
 def create_product():
     print("Please provide the product information.")
@@ -83,18 +83,12 @@ Please select an operation: """.format("@mswan", len(products))
 
 chosen_operation = input(menu)
 
-if chosen_operation.title() == "List":
-    list_products()
-elif chosen_operation.title() == "Show":
-    show_product()
-elif chosen_operation.title() == "Create":
-    create_product()
-elif chosen_operation.title() == "Update":
-    update_product()
-elif chosen_operation.title() == "Destroy":
-    destroy_product()
-else:
-    print("Operation does not exist.")
+if chosen_operation.title() == "List": list_products()
+elif chosen_operation.title() == "Show": show_product()
+elif chosen_operation.title() == "Create": create_product()
+elif chosen_operation.title() == "Update": update_product()
+elif chosen_operation.title() == "Destroy": destroy_product()
+else: print("Operation does not exist.")
 
 
 with open(products_csv, "w") as csv_file:

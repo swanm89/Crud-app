@@ -1,7 +1,7 @@
 # Crud-app
 
 
-This app helps the manager keep track of their inventory of prducts, which includes creating, reading, updating, or deleting inventory. 
+This app helps the manager keep track of their inventory of products, which includes creating, reading, updating, or deleting inventory.
 
 ## Installation
 
