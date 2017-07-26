@@ -12,7 +12,7 @@ def Provide_ID():
     product_id = input("Please provide the product ID:")
     return product_id
 
-def auto_incremented_id():
+def additonal_id():
     product_ids = map(get_product_id, products)
     return max(product_ids) + 1
 
@@ -36,7 +36,7 @@ def show_product():
 
 def create_product():
     print("Please provide the product information.")
-    product = {"id": auto_incremented_id() }
+    product = {"id": additonal_id() }
     for header in user_input_headers:
         product[header] = input("The '{0}' is: ".format(header))
     products.append(product)
@@ -71,13 +71,7 @@ Welcome to the Grocery Store Database!
 
 There are {1} products in the database.
 
-    operation | description
-    --------- | ------------------
-    'List'    | Display a list of product identifiers and names.
-    'Show'    | Show information about a product.
-    'Create'  | Add a new product.
-    'Update'  | Edit an existing product.
-    'Destroy' | Delete an existing product.
+Available operations: 'List', 'Show', 'Create', 'Update', 'Destroy'
 
 Please select an operation: """.format("@mswan", len(products))
 
